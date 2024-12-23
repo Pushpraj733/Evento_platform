@@ -2,11 +2,19 @@ import CheckoutButton from '@/components/shared/CheckoutButton';
 import Collection from '@/components/shared/Collection';
 import { getEventById, getRelatedEventsByCategory } from '@/lib/actions/event.actions'
 import { formatDateTime } from '@/lib/utils';
-import { SearchParamProps } from '@/types'
+// import { SearchParamProps } from '@/types'
 import Image from 'next/image';
+import { ParsedUrlQuery } from 'querystring';
+
+interface SearchParamProps {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+
 
 const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
-  const { id } = params; // Destructure `id` from params
+  const { id } = params;
 
   const event = await getEventById(id);
 
