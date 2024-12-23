@@ -143,8 +143,9 @@ export type CreateUserParams = {
     keysToRemove: string[]
   }
   
-  export type SearchParamProps = {
+  export interface SearchParamProps {
     params: { id: string };
     searchParams: { [key: string]: string | string[] | undefined };
-  }
+  };
+  
   
