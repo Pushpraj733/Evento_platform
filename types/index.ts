@@ -143,12 +143,8 @@ export type CreateUserParams = {
     keysToRemove: string[]
   }
   
-  import { ParsedUrlQuery } from 'querystring';
-
-  export interface SearchParamProps {
-    params: ParsedUrlQuery & { id: string }; // Extend ParsedUrlQuery
-    searchParams: { [key: string]: string | string[] | undefined };
-  }
-  ;
-  
+  export type SearchParamProps = {
+    params: { id: string }; // dynamic route parameter
+    searchParams?: { [key: string]: string | string[] | undefined }; // query parameters
+  };
   
