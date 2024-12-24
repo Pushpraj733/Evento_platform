@@ -144,7 +144,7 @@ export type CreateUserParams = {
   }
   
   export type SearchParamProps = {
-    params: { id: string }; // dynamic route parameter
-    searchParams?: { [key: string]: string | string[] | undefined }; // query parameters
+    params: { id: string };
+    searchParams?: { [key: string]: string | string[] | undefined };
   };
   
