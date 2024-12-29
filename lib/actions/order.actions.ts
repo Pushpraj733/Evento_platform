@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 import { CheckoutOrderParams, CreateOrderParams, GetOrdersByEventParams, GetOrdersByUserParams } from "@/types"
 import { redirect } from 'next/navigation';
 import { handleError } from '../utils';
-import { connectToDatabase } from '../database';
+import { connectToDatabase } from '@/lib/database';
 import Order from '../database/models/order.model';
 import Event from '../database/models/event.model';
 import {ObjectId} from 'mongodb';
@@ -47,7 +47,7 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
 export const createOrder = async (order: CreateOrderParams) => {
   try {
     await connectToDatabase();
-    
+    console.log("Database connected successfully");
     const newOrder = await Order.create({
       ...order,
       event: order.eventId,
